@@ -22,3 +22,32 @@ matrix:
       python: "3.6"
       before_install: pip install cython
       script: python setup.py build_ext
+      # added power support arch ppc64le.
+    - language: c
+      compiler: gcc
+      script: make
+      arch: ppc64le
+    - language: c
+      compiler: clang
+      script: make
+      arch: ppc64le
+    - arch: arm64
+      language: c
+      compiler: gcc
+      arch: ppc64le
+      script: make arm_neon=1 aarch64=1
+    - language: python
+      python: "2.7"
+      before_install: pip install cython
+      script: python setup.py build_ext
+      arch: ppc64le
+    - language: python
+      python: "3.5"
+      before_install: pip install cython
+      script: python setup.py build_ext
+      arch: ppc64le
+    - language: python
+      python: "3.6"
+      before_install: pip install cython
+      arch: ppc64le
+      script: python setup.py build_ext
